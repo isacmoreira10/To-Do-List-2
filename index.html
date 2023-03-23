@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link reel="stylesheet" href="style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>to Do List</title>
+</head>
+
+<body>
+    <div id="allItens" class="allItens">
+        <p>Bem vinde de volte</p>
+        <button id="myBtn">+</button>
+        <div id="displayModal" class="modal">
+            <div class="modal-content">
+                <span class="close" id="close" onclick="close">&times;</span>
+                <img src="Vector (3).png">
+                <p>Aberto em: <span id="hourTime"></span>
+                    <a>às</a>
+                    <span id="dateTime"></span>
+                </p>
+                <p>Selecione uma opção</p>
+                <button onclick="btnOpen()" class="btnOpen" id="btnOpen">Aberto</button>
+                <br>
+                <button onclick="btnProgress()" class="btnProgress">Em Andamento</button> <br>
+                <button onclick="btnFinish()" class="btnFinish">Finalizado</button> <br>
+                <input placeholder="Título" id="titleTasks" class="title">
+                <p>Sua tarefa</p>
+                <hr>
+                <input placeholder="Digite para começar" id="tasks">
+            </div>
+        </div>
+        <div id="displayOpenTasks">
+        </div>
+        <div id="displayProgressTasks">
+        </div>
+        <div id="displayFinishTasks">
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
