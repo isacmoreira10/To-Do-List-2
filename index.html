@@ -2,43 +2,149 @@
 <html lang="en">
 
 <head>
+    <link rel="stylesheet" href="style.css">
     <meta charset="UTF-8">
-    <link reel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>to Do List</title>
+    <title>To DO List</title>
 </head>
 
 <body>
-    <div id="allItens" class="allItens">
-        <p>Bem vinde de volte</p>
-        <button id="myBtn">+</button>
-        <div id="displayModal" class="modal">
-            <div class="modal-content">
-                <span class="close" id="close" onclick="close">&times;</span>
-                <img src="Vector (3).png">
-                <p>Aberto em: <span id="hourTime"></span>
-                    <a>às</a>
-                    <span id="dateTime"></span>
-                </p>
-                <p>Selecione uma opção</p>
-                <button onclick="btnOpen()" class="btnOpen" id="btnOpen">Aberto</button>
+    <div class="container">
+        <h1 class="titleToDoList">
+            <img src="to do.png" class="toDoList">
+            <br>
+            <img src="list.png" class="list">
+        </h1>
+        <div class="headerContainer">
+            <p class="paragraph">Bem vinde de volte, Marombeire.</p>
+            <div class="imageAndText">
+                <img src="Vector (4).png" class="imageVector">
+                <a class="textList">Lista de tarefas</a>
                 <br>
-                <button onclick="btnProgress()" class="btnProgress">Em Andamento</button> <br>
-                <button onclick="btnFinish()" class="btnFinish">Finalizado</button> <br>
-                <input placeholder="Título" id="titleTasks" class="title">
-                <p>Sua tarefa</p>
-                <hr>
-                <input placeholder="Digite para começar" id="tasks">
+            </div>
+            <div class="images">
+                <img src="Rectangle 1.png" class="RectangleImg">
+                <img src="Vector 1.png" class="vectorImg">
             </div>
         </div>
-        <div id="displayOpenTasks">
-        </div>
-        <div id="displayProgressTasks">
-        </div>
-        <div id="displayFinishTasks">
+        <div class="displayShowTasks">
+            <div class="displayShowTasksOpen">
+                <div class="openDivIndex">
+                    <div class="headerOpenTasks">
+                        <a class="open">ABERTO</a>
+                        <div id="indexOpenTasks" class="indexOpenTasks"></div>
+                        <button class="buttonOpenTasks" onclick="createDivOpenTasks()" id="btnModalOpen">+</button>
+                    </div>
+                    <div id="modalOpenTasks" class="modalOpen">
+                        <div class="modal-content-open">
+                            <div class="hourAndTimeModalOpen">
+                                <div class="modalOpenHeader">
+                                    <button class="openTextInModal" onclick="ButtonAddOpenTasks()">ABERTO</button>
+                                    <div class="dataAndHour">
+                                        <img src="Vector (3).png" class="vector3ModalOpen">
+                                        <a>Aberto em: </a>
+                                        <a id="dateTimeModalOpen"></a>
+                                        <a>ás</a>
+                                        <a id="hourTimeModalOpen">
+                                        </a>
+                                    </div>
+                                    <span class="btnCloseOpen">&times;</span>
+                                </div>
+                                <br>
+                                <input id="titleOpenContent" placeholder="TÍTULO" class="titleOpenContent"> <br>
+                                <a class="yourTasksTextOpenModal">Sua tarefa</a> <br>
+                                <div class="imagesModalOpen">
+                                    <img src="Rectangle 1.png" class="RectangleImgModalOpen">
+                                    <img src="Vector 1.png" class="vector3ModalOpenDownInput">
+                                </div>
+                                <br>
+                                <input id="tasksOpenContent" placeholder="Digite aqui para começar"
+                                    class="tasksOpenContent">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="tasksOpenDiv"></div>
+                </div>
+            </div>
+            <div class="displayShowTasksProgress">
+                <div class="progressDivIndex">
+                    <div class="headerProgressTasks">
+                        <a class="progress"> ANDAMENTO</a>
+                        <div id="indexProgressTask" class="indexProgressTask"></div>
+                        <button class="buttonProgressTasks" onclick="CreateDivProgress()"
+                            id="btnModalProgress">+</button>
+                    </div>
+                    <div id="modalProgressTasks" class="modalProgress">
+                        <div class="modal-content-progress">
+                            <div class="modalProgressHeader">
+                                <button onclick="buttonAddProgressTasks()" class="progressTextInModal">EM
+                                    ANDAMENTO</button>
+                                <div class="dataAndHourModalProgress">
+                                    <img src="Vector (3).png" class="vector3ModalProgress">
+                                    <a>Aberto em: </a>
+                                    <a id="dateTimeModalProgress">
+                                    </a>
+                                    <a>ás</a>
+                                    <a id="hourTimeModalProgress"></a>
+                                </div>
+                                <span class="btnCloseProgress">&times;</span>
+                            </div>
+                            <input id="titleProgressContent" class="titleProgressContent" placeholder="TÍTULO"> <br>
+                            <a class="yourTasksTextProgressModal">Sua tarefa</a> <br>
+                            <div class="imagesModalProgress">
+                                <img src="Rectangle 1.png" class="RectangleImgModalProgress">
+                                <img src="Vector 1.png" class="vector3ModalProgressDownInput">
+                            </div>
+                            <br>
+                            <input id="tasksProgressContent" class="tasksProgressContent"
+                                placeholder="Digite aqui para começar">
+                        </div>
+                    </div>
+                    <div id="taskProgressDiv"></div>
+                </div>
+            </div>
+            <div class="displayShowTasksFinish">
+                <div class="finishDivIndex">
+                    <div class="headerFinishTasks">
+                        <a class="finish">FINALIZADO</a>
+                        <div id="indexFinishTask" class="indexFinishTask"></div>
+                        <button class="buttonFinishTasks" onclick="createDivFinish()" id="btnModalFinish">+</button>
+                    </div>
+                    <div id="modalFinishTasks" class="modalFinish">
+                        <div class="modal-content-finish">
+                            <div class="modalFinishHeader">
+                                <button onclick="buttonAddFinishTasks()" class="finishTextInModal">FINALIZADO</button>
+                                <div class="dataAndHourModalFinish">
+                                    <img src="Vector (3).png" class="vector3ModalFinish">
+                                    <a>Aberto em: </a>
+                                    <a id="dateTimeModalFinish">
+                                    </a>
+                                    <a>ás</a>
+                                    <a id="hourTimeModalFinish"></a>
+                                </div>
+                                <span class="btnCloseFinish">&times;</span>
+                            </div>
+                            <br>
+                            <input id="titleFinishContent" class="titleFinishContent" placeholder="TÍTULO"> <br>
+                            <a class="yourTasksTextFinishModal">Sua tarefa</a> <br>
+                            <div class="imagesModalFinish">
+                                <img src="Rectangle 1.png" class="RectangleImgModalFinish">
+                                <img src=" Vector 1.png" class="vector3ModalFinishDownInput">
+                            </div>
+                            <br>
+                            <input id="tasksFinishContent" class="tasksFinishContent"
+                                placeholder="Digite aqui para começar">
+
+                        </div>
+                    </div>
+                    <div id="taskFinishDiv"></div>
+                </div>
+
+            </div>
         </div>
     </div>
+
     <script src="script.js"></script>
 </body>
 
