@@ -22,6 +22,7 @@ function dateAndHour() {
 function createDivOpenTasks() {
     createModalOpen()
     dateAndHour()
+
 }
 
 let indexOpenTasks = document.querySelector('#indexOpenTasks')
@@ -36,9 +37,11 @@ function ButtonAddOpenTasks() {
         titleOpenContent: titleOpenContent.value,
         tasksOpenContent: tasksOpenContent.value
     }
-
     objectTasksOpen.push(itemTasksOpen)
+    addTasksOpen()
+}
 
+function addTasksOpen() {
     let newDivOpenTasks = ''
     for (let index = 0; index < objectTasksOpen.length; index++) {
         const tasksOpenElementHtml = `<div class="tasksOpenDiv" id="tasksOpenDiv">
@@ -50,6 +53,11 @@ function ButtonAddOpenTasks() {
             <a>
              <img src="Vector (3).png" class="vector3">
             ${objectTasksOpen[index].titleOpenContent}
+                </a>
+                <a>
+                <button onclick="removeTasksOpen(${index})" class="buttonRemoveTaskOpen">
+                <img src="icons8-trash-bin-50 (1).png" class="imageTrashOpen">
+                </button>
                 </a>
         </div>
     </div>`
@@ -110,6 +118,7 @@ function CreateDivProgress() {
 let indexProgressTask = document.querySelector('#indexProgressTask')
 let taskProgressDiv = document.querySelector('#taskProgressDiv')
 let objectTasksProgress = []
+
 function buttonAddProgressTasks() {
     let titleProgressContent = document.querySelector('#titleProgressContent')
     let tasksProgressContent = document.querySelector('#tasksProgressContent')
@@ -120,7 +129,10 @@ function buttonAddProgressTasks() {
     }
 
     objectTasksProgress.push(itemTasksProgress)
+    addTasksProgress()
+}
 
+function addTasksProgress() {
     let newDivProgressTasks = ''
     for (let i = 0; i < objectTasksProgress.length; i++) {
         const tasksProgressHtmlElement = `<div class="tasksProgressDiv">
@@ -133,6 +145,10 @@ function buttonAddProgressTasks() {
         <a>
             <img src="Vector (3).png" class="vector3">
         ${objectTasksProgress[i].titleProgressContent}
+            </a>
+            <a><button onclick="removeTasksProgress(${i})" class="buttonRemoveTaskProgress">
+            <img src="icons8-trash-bin-50 (1).png" class="imageTrashProgress">
+            </button>
             </a>
     </div>
 </div>`
@@ -183,7 +199,10 @@ function buttonAddFinishTasks() {
     }
 
     objectTasksFinish.push(itemTasksFinish)
+    addTasksFinish()
+}
 
+function addTasksFinish() {
     let indexFinishTask = document.querySelector('#indexFinishTask')
     let taskFinishDiv = document.querySelector('#taskFinishDiv')
     let newDivProgressTasks = ''
@@ -197,6 +216,9 @@ function buttonAddFinishTasks() {
                     <div class="titleFinishDivContent">
                         <a>
                             <img src="Vector (3).png" class="vector3"> ${objectTasksFinish[indicator].titleFinishContent}</a>
+                            <a><button onclick="removeTasksFinish(${indicator})" class="buttonRemoveTaskFinish">
+                            <img src="icons8-trash-bin-50 (1).png" class="imageTrashFinish">
+                            </button></a>
                     </div>
                 </div>`
         newDivProgressTasks += tasksFinishHtmlElement
@@ -208,3 +230,27 @@ function buttonAddFinishTasks() {
     document.querySelector('#tasksFinishContent').value = ''
 }
 
+
+function removeTasksOpen(index) {
+    const removeDivOpen = objectTasksOpen.filter(function (objectTaskOpen, taskindex) {
+        return index !== taskindex
+    })
+    objectTasksOpen = removeDivOpen
+    addTasksOpen()
+}
+
+function removeTasksProgress(i) {
+    const removeDivProgress = objectTasksProgress.filter(function (objectTaskProgress, taskindex) {
+        return i !== taskindex
+    })
+    objectTasksProgress = removeDivProgress
+    addTasksProgress()
+}
+
+function removeTasksFinish(indicator) {
+    const removeDivFinish = objectTasksFinish.filter(function (objectTaskFinish, taskindex) {
+        return indicator !== taskindex
+    })
+    objectTasksFinish = removeDivFinish
+    addTasksFinish()
+}
