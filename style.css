@@ -617,3 +617,37 @@ h1 {
     color: white;
     padding: 3% 3%;
 }
+
+.imageTrashFinish {
+    background-color: rgba(70, 219, 94, 1);
+    height: 15px;
+}
+
+.buttonRemoveTaskFinish {
+    border: none;
+    background-color: rgba(70, 219, 94, 1);
+    cursor: pointer;
+}
+
+.imageTrashOpen {
+    background-color: rgba(219, 70, 70, 1);
+    height: 15px;
+}
+
+.buttonRemoveTaskOpen {
+    border: none;
+    background-color: rgba(219, 70, 70, 1);
+    cursor: pointer;
+}
+
+
+.imageTrashProgress {
+    background-color: rgba(255, 122, 57, 1);
+    height: 15px;
+}
+
+.buttonRemoveTaskProgress {
+    border: none;
+    background-color: rgba(255, 122, 57, 1);
+    cursor: pointer;
+}
